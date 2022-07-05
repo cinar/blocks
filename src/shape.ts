@@ -1,5 +1,5 @@
-import { Bag } from './bag.js';
-import { Bitmap } from './bitmap.js';
+import { Bag } from "./bag.js";
+import { Bitmap } from "./bitmap.js";
 
 /**
  * Shape object.

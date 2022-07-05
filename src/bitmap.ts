@@ -2,7 +2,7 @@
 export type Style2D = string[][];
 
 /** Empty style. */
-export const E = '';
+export const E = "";
 
 /**
  * Bitmap object.

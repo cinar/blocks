@@ -1,7 +1,7 @@
-import { Bag } from './bag.js';
-import { Bitmap } from './bitmap.js';
-import { Shape } from './shape.js';
-import { BLOCKS } from './blocks.js';
+import { Bag } from "./bag.js";
+import { Bitmap } from "./bitmap.js";
+import { Shape } from "./shape.js";
+import { BLOCKS } from "./blocks.js";
 
 /** Row count. */
 const ROWS = 15;
@@ -62,7 +62,7 @@ export class Game {
    */
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
-    this.context = canvas.getContext('2d')!;
+    this.context = canvas.getContext("2d")!;
     this.board = Bitmap.emptyWithSize(ROWS, COLS);
     this.lastUpdate = 0;
     this.lastStep = 0;
@@ -147,7 +147,7 @@ export class Game {
    * Listens for key events.
    */
   private listenForKeyEvents() {
-    document.addEventListener('keydown', (event: KeyboardEvent) => {
+    document.addEventListener("keydown", (event: KeyboardEvent) => {
       this.onKeyEvent(event.key.toLowerCase());
     });
   }
@@ -169,11 +169,11 @@ export class Game {
    */
   private onControlKey(key: string): boolean {
     switch (key) {
-      case 'enter':
+      case "enter":
         this.togglePaused();
         break;
 
-      case 'r':
+      case "r":
         this.clear();
         break;
 
@@ -191,24 +191,24 @@ export class Game {
    */
   private onPlayKey(key: string): boolean {
     switch (key) {
-      case 'arrowleft':
+      case "arrowleft":
         this.left();
         break;
 
-      case 'arrowright':
+      case "arrowright":
         this.right();
         break;
 
-      case 'arrowup':
+      case "arrowup":
         this.rotate();
         break;
 
-      case 'arrowdown':
+      case "arrowdown":
         this.down();
         break;
 
-      case 'spacebar':
-      case ' ':
+      case "spacebar":
+      case " ":
         this.throwDown();
         break;
 
@@ -255,32 +255,32 @@ export class Game {
     const width = COLS * SIZE;
     const height = ROWS * SIZE;
 
-    this.context.fillStyle = '#000000';
-    this.context.textAlign = 'left';
+    this.context.fillStyle = "#000000";
+    this.context.textAlign = "left";
     this.context.font = '10px "Press Start 2P"';
-    this.context.fillText('Lines', 2, 12);
+    this.context.fillText("Lines", 2, 12);
     this.context.fillText(this.prependZeros(this.lines, 5), 2, 24);
 
     const rightEdge = width - 2;
-    this.context.textAlign = 'right';
-    this.context.fillText('Score', rightEdge, 12);
+    this.context.textAlign = "right";
+    this.context.fillText("Score", rightEdge, 12);
     this.context.fillText(this.prependZeros(this.score, 5), rightEdge, 24);
 
     if (this.state == State.GAME_OVER) {
-      this.context.fillStyle = '#ff0000';
-      this.context.textAlign = 'center';
+      this.context.fillStyle = "#ff0000";
+      this.context.textAlign = "center";
       this.context.font = '20px "Press Start 2P"';
       this.context.fillText(
-        'Game Over',
+        "Game Over",
         Math.floor(width / 2),
         Math.floor(height / 2)
       );
     } else if (this.state == State.PAUSED) {
-      this.context.fillStyle = '#00ff00';
-      this.context.textAlign = 'center';
+      this.context.fillStyle = "#00ff00";
+      this.context.textAlign = "center";
       this.context.font = '20px "Press Start 2P"';
       this.context.fillText(
-        'Paused',
+        "Paused",
         Math.floor(width / 2),
         Math.floor(height / 2)
       );
@@ -337,9 +337,9 @@ export class Game {
    * @return {string} number prepended with zeros.
    */
   private prependZeros(value: number, size: number) {
-    const text = '000000' + value;
+    const text = "000000" + value;
     return text.substr(text.length - size);
   }
 }
 
-new Game(document.getElementById('board')! as HTMLCanvasElement);
+new Game(document.getElementById("board")! as HTMLCanvasElement);

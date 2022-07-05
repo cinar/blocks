@@ -1,12 +1,12 @@
-import { Bitmap, E } from './bitmap.js';
+import { Bitmap, E } from "./bitmap.js";
 
-const B = '#0000ff';
-const C = '#00ffff';
-const G = '#00ff00';
-const O = '#ff7f00';
-const P = '#800080';
-const R = '#ff0000';
-const Y = '#ffff00';
+const B = "#0000ff";
+const C = "#00ffff";
+const G = "#00ff00";
+const O = "#ff7f00";
+const P = "#800080";
+const R = "#ff0000";
+const Y = "#ffff00";
 
 /** Block I. */
 const BLOCK_I = new Bitmap([[C, C, C, C]]);
